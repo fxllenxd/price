@@ -17,7 +17,7 @@ HEADERS = {
 def sanitize_query(query: str) -> str:
     """Strips currency terms like лв, lv, BGN, EUR, € and clean search tokens."""
     currency_patterns = r'\b(лв\.?|лв|lv\.?|lv|bgn|eur|euro|€)\b'
-    cleaned = re.sub(currency_patterns, '', query, flags=i)
+    cleaned = re.sub(currency_patterns, '', query, flags=re.IGNORECASE)
     # Remove extra spaces
     return " ".join(cleaned.split())
 
